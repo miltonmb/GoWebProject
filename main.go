@@ -7,6 +7,16 @@ type newPage struct{
 	Title string
 }
 
+type Libro struct{	
+	ISBN string
+	name string
+	inStock int
+}
+
+type makeLibro(ISBN string ,name string ,inStock int) Libro{
+	return Libro{ISBN,name,inStock}
+}
+
 func index_handler(w http.ResponseWriter, r *http.Request ){
 	p := newPage{Title: "Proyecto 2"}
 	t, _ := template.ParseFiles("templates/index.html")
