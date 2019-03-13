@@ -1,30 +1,33 @@
 package main
-import ("net/http"
-		"html/template"
+
+import (
+	"html/template"
+	"net/http"
 )
 
-type newPage struct{
+type newPage struct {
 	Title string
 }
 
-type Libro struct{	
-	ISBN string
-	name string
+type Libro struct {
+	ISBN    string
+	name    string
 	inStock int
+	editora string
 }
 
-type makeLibro(ISBN string ,name string ,inStock int) Libro{
-	return Libro{ISBN,name,inStock}
+func makeLibro(ISBN string, name string, inStock int, editora string) Libro {
+	return Libro{ISBN, name, inStock, editora}
 }
 
-func index_handler(w http.ResponseWriter, r *http.Request ){
+func index_handler(w http.ResponseWriter, r *http.Request) {
 	p := newPage{Title: "Proyecto 2"}
 	t, _ := template.ParseFiles("templates/index.html")
-	t.Execute(w,p)
+	t.Execute(w, p)
 }
-func main(){
+func main() {
 	fs := http.FileServer(http.Dir("static"))
-  	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.HandleFunc("/", index_handler)
-	http.ListenAndServe(":8000",nil)
+	http.ListenAndServe(":8000", nil)
 }
