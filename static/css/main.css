@@ -1,0 +1,34 @@
+.elements {
+    margin: 5%;
+}
+
+#logo {
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90px;
+    font-weight: 900;
+    letter-spacing: -10px;
+    line-height: 1;
+    text-shadow: rgb(167, 167, 167) 5px 3px 0;
+    position: relative;
+}
+
+#logo:after {
+    content: "Proyecto 2";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+#logo:after {
+    /*background: url(https://subtlepatterns.com/patterns/crossed_stripes.png) repeat;*/
+    background-image: -webkit-linear-gradient(left top, transparent 0%, transparent 30%, rgb(255, 255, 255) 25%, rgb(255, 255, 255) 50%, transparent 50%, transparent 75%, rgb(255, 255, 255) 75%);
+    background-size: 4px 4px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 0;
+    display: block;
+    text-shadow: none;
+}
