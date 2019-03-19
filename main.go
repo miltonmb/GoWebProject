@@ -184,10 +184,15 @@ func adminHandler(w http.ResponseWriter, r *http.Request) {
 	t, _ := template.ParseFiles("templates/admin.html")
 	t.Execute(w, p)
 }
+
+func buttonHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "You called me!")
+}
 func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/admin", adminHandler)
+	http.HandleFunc("/callme", buttonHandler)
 	http.ListenAndServe(":8000", nil)
 }
