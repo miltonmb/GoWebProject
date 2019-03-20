@@ -9,6 +9,12 @@ import (
 	//"sort"
 )
 
+var libro1 = makeLibro("l1", "name", 20, "Casco Records (?)")
+var libro2 = makeLibro("l2", "name", 20, "Casco Records (?)")
+var libro3 = makeLibro("l3", "name", 20, "Casco Records (?)")
+var libro4 = makeLibro("l4", "name", 20, "Casco Records (?)")
+var libro5 = makeLibro("l5", "name", 20, "Casco Records (?)")
+
 type newPage struct {
 	Title string
 }
@@ -186,7 +192,11 @@ func adminHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func buttonHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "You called me!")
+	//fmt.Fprintln(w, "You called me!")
+	amount := r.FormValue("amount")
+	id := r.FormValue("id")
+	fmt.Fprintln(w, amount)
+	fmt.Fprintln(w, id)
 }
 func main() {
 	fs := http.FileServer(http.Dir("static"))
