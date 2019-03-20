@@ -10,11 +10,11 @@ import (
 	//"sort"
 )
 
-var libro1 = makeLibro("libro1", "name", 0, "Casco Records (?)")
-var libro2 = makeLibro("libro2", "name", 0, "Casco Records (?)")
-var libro3 = makeLibro("libro3", "name", 0, "Casco Records (?)")
-var libro4 = makeLibro("libro4", "name", 0, "Casco Records (?)")
-var libro5 = makeLibro("libro5", "name", 0, "Casco Records (?)")
+var libro1 = makeLibro("libro1", "Learning Python, 4th Edition", 0, "O'Reilly Media, Inc.")
+var libro2 = makeLibro("libro2", "Learning Ruby, 1st Edition", 0, "O'Reilly Media, Inc.")
+var libro3 = makeLibro("libro3", "C# 7.0 in a Nutshell", 0, "O'Reilly Media, Inc.")
+var libro4 = makeLibro("libro4", "21st Century C, 2nd Edition", 0, "O'Reilly Media, Inc.")
+var libro5 = makeLibro("libro5", "Learning JavaScript, 3rd Edition", 0, "O'Reilly Media, Inc.")
 var Arr = [5]Libro{libro1, libro2, libro3, libro4, libro5}
 
 type newPage struct {
