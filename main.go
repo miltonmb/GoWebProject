@@ -19,9 +19,19 @@ var Arr = [5]Libro{libro1, libro2, libro3, libro4, libro5}
 
 type newPage struct {
 	Title string
+	Name1 string
+	Name2 string
+	Name3 string
+	Name4 string
+	Name5 string
 }
 type adminPage struct {
 	Title string
+	Name1 string
+	Name2 string
+	Name3 string
+	Name4 string
+	Name5 string
 }
 
 type Libro struct {
@@ -191,12 +201,12 @@ func calcularTotalEsp(n []int) float64 {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	p := newPage{Title: "Proyecto 2"}
+	p := newPage{Title: "Proyecto 2", Name1: Arr[0].name, Name2: Arr[1].name, Name3: Arr[2].name, Name4: Arr[3].name, Name5: Arr[4].name}
 	t, _ := template.ParseFiles("templates/index.html")
 	t.Execute(w, p)
 }
 func adminHandler(w http.ResponseWriter, r *http.Request) {
-	p := newPage{Title: "Administrador"}
+	p := newPage{Title: "Administración", Name1: Arr[0].name, Name2: Arr[1].name, Name3: Arr[2].name, Name4: Arr[3].name, Name5: Arr[4].name}
 	t, _ := template.ParseFiles("templates/admin.html")
 	t.Execute(w, p)
 }
