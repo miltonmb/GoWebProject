@@ -6,14 +6,16 @@ import (
 	"html/template"
 	"net/http"
 	"sort"
+	"strconv"
 	//"sort"
 )
 
-var libro1 = makeLibro("l1", "name", 20, "Casco Records (?)")
-var libro2 = makeLibro("l2", "name", 20, "Casco Records (?)")
-var libro3 = makeLibro("l3", "name", 20, "Casco Records (?)")
-var libro4 = makeLibro("l4", "name", 20, "Casco Records (?)")
-var libro5 = makeLibro("l5", "name", 20, "Casco Records (?)")
+var libro1 = makeLibro("libro1", "name", 0, "Casco Records (?)")
+var libro2 = makeLibro("libro2", "name", 0, "Casco Records (?)")
+var libro3 = makeLibro("libro3", "name", 0, "Casco Records (?)")
+var libro4 = makeLibro("libro4", "name", 0, "Casco Records (?)")
+var libro5 = makeLibro("libro5", "name", 0, "Casco Records (?)")
+var Arr = [5]Libro{libro1, libro2, libro3, libro4, libro5}
 
 type newPage struct {
 	Title string
@@ -27,6 +29,14 @@ type Libro struct {
 	name    string
 	inStock int
 	editora string
+}
+
+func (l Libro) Stock() int {
+	return l.inStock
+}
+
+func (l Libro) SetStock(stock int) {
+	l.inStock = stock
 }
 
 type Factura struct {
@@ -197,6 +207,17 @@ func buttonHandler(w http.ResponseWriter, r *http.Request) {
 	id := r.FormValue("id")
 	fmt.Fprintln(w, amount)
 	fmt.Fprintln(w, id)
+	i1, err := strconv.Atoi(amount)
+	if err == nil {
+		fmt.Println(i1)
+	}
+	for i := 0; i < 5; i++ {
+		if id == Arr[i].ISBN {
+			Arr[i].inStock = i1
+			fmt.Fprintln(w, Arr[i].inStock)
+			break
+		}
+	}
 }
 func main() {
 	fs := http.FileServer(http.Dir("static"))
