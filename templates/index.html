@@ -16,7 +16,8 @@
             <h1 href="/" id="logo">Proyecto 2</h1>
             <p></p>
         </div>
-        <button type="button" class="btn btn-info btn-lg" id="libro1" data-toggle="modal" data-target="#myModal">Cart</button>
+        <button type="button" class="btn btn-info btn-lg" id="libro1" data-toggle="modal"
+            data-target="#myModal">Cart</button>
     </div>
 </header>
 
@@ -24,59 +25,63 @@
     <div class="elements">
         <div class="row">
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">                         
+                <div class="thumbnail">
                     <img src="https://www.safaribooksonline.com/library/cover/9780596805395/360h/">
                     <div class="caption">
                         <h3>{{.Name1}}</h3>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                             gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><button onClick="addLibOne(this.id)" class="btn btn-primary" role="button">Agregar al carrito</button></p>
+                        <p><button id="libro1" onClick="addLibOne(this.id)" class="btn btn-primary"
+                                role="button">Agregar al carrito</button></p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">                     
+                <div class="thumbnail">
                     <img src="https://www.safaribooksonline.com/library/cover/9780596529864/360h/">
                     <div class="caption">
                         <h3>{{.Name2}}</h3>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                             gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Agregar al carrito</a></p>
+                        <p><button id="libro2" onClick="addLibOne(this.id)" class="btn btn-primary"
+                                role="button">Agregar al carrito</button></p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">                     
+                <div class="thumbnail">
                     <img src="https://www.safaribooksonline.com/library/cover/9781491987643/360h/">
                     <div class="caption">
                         <h3>{{.Name3}}</h3>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                             gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Agregar al carrito</a></p>
+                        <p><button id="libro3" onClick="addLibOne(this.id)" class="btn btn-primary"
+                                role="button">Agregar al carrito</button></p>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">                         
-                    <img src="https://www.safaribooksonline.com/library/cover/9781491904428/360h/"> 
+                <div class="thumbnail">
+                    <img src="https://www.safaribooksonline.com/library/cover/9781491904428/360h/">
                     <div class="caption">
                         <h3>{{.Name4}}</h3>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                             gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Agregar al carrito</a></p>
+                        <p><button id="libro4" onClick="addLibOne(this.id)" class="btn btn-primary"
+                                role="button">Agregar al carrito</button></p>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">                         
-                    <img src="https://www.safaribooksonline.com/library/cover/9781491914892/360h/"> 
+                <div class="thumbnail">
+                    <img src="https://www.safaribooksonline.com/library/cover/9781491914892/360h/">
                     <div class="caption">
                         <h3>{{.Name5}}</h3>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                             gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Agregar al carrito</a></p>
+                            <p><button id="libro5" onClick="addLibOne(this.id)" class="btn btn-primary" role="button">Agregar al carrito</button></p>
                     </div>
                 </div>
             </div>
@@ -94,7 +99,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Detalles del carrito</p>
-                }{ñ´-[}]
+                    }{ñ´-[}]
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
