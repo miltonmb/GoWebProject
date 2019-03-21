@@ -138,71 +138,80 @@ func calcularTotal(n []int) float64 {
 }
 
 func calcularTotalEsp(n []int) float64 {
-	var temp = n
-	y := []int{}
-
-	sort.Slice(temp[:], func(i, j int) bool {
-		return temp[i] < temp[j]
-	})
-
-	if temp[0] == temp[1] && temp[2] == temp[0]*2 {
-		y = append(y, temp[0]*2, temp[2], temp[3], temp[4])
+	var test = []int{0,0,0,0,0}
+	  copy(test, n)
+	var temp = test
+  
+	  sort.Slice(temp[:], func(i, j int) bool {
+		  return temp[i] < temp[j]
+	  })
+	
+	var y = []int{ }
+  
+	  if temp[0] == temp[1] && temp[2] == temp[0]*2 {
+		  y = append(y, temp[0]*2, temp[2], temp[3], temp[4])
+	  }
+  
+	if(len(y) < 3){
+	  return 0.0
 	}
-
-	fmt.Println(n)
-	var total = 0.00
-	//Se toma el mayor elemento de la lista para
-	var iter = y[len(y)-1]
+  
+	  fmt.Println(y)
+	  var total = 0.00
+	  //Se toma el mayor elemento de la lista para
+	  var iter = y[len(y)-1]
+	  
 	z := y
-	x := []int{}
-
-	var acum = 0
-	for j := 0; j < iter; j++ {
-
-		if z[0] > 0 {
-			acum++
-			z[0]--
-		}
-
-		if z[1] > 0 {
-			acum++
-			z[1]--
-		}
-
-		if z[2] > 0 {
-			acum++
-			z[2]--
-		}
-
-		if z[3] > 0 {
-			acum++
-			z[3]--
-		}
-
-		x = append(x, acum)
-		fmt.Println(x)
-		acum = 0
-	}
-
-	for k := 0; k < len(x); k++ {
-		if x[k] == 1 {
-			total += 800
-		}
-		if x[k] == 2 {
-			total += 2 * (800 - 800*0.05)
-		}
-		if x[k] == 3 {
-			total += 3 * (800 - 800*0.10)
-		}
-		if x[k] == 4 {
-			total += 4 * (800 - 800*0.20)
-		}
-		if x[k] == 5 {
-			total += 5 * (800 - 800*0.25)
-		}
-	}
-	return total
-}
+  
+	  x := []int{}
+  
+	  var acum = 0
+	  for j := 0; j < iter; j++ {
+  
+		  if z[0] > 0 {
+			  acum++
+			  z[0]--
+		  }
+  
+		  if z[1] > 0 {
+			  acum++
+			  z[1]--
+		  }
+  
+		  if z[2] > 0 {
+			  acum++
+			  z[2]--
+		  }
+  
+		  if z[3] > 0 {
+			  acum++
+			  z[3]--
+		  }
+  
+		  x = append(x, acum)
+		  fmt.Println(x)
+		  acum = 0
+	  }
+  
+	  for k := 0; k < len(x); k++ {
+		  if x[k] == 1 {
+			  total += 800
+		  }
+		  if x[k] == 2 {
+			  total += 2 * (800 - 800*0.05)
+		  }
+		  if x[k] == 3 {
+			  total += 3 * (800 - 800*0.10)
+		  }
+		  if x[k] == 4 {
+			  total += 4 * (800 - 800*0.20)
+		  }
+		  if x[k] == 5 {
+			  total += 5 * (800 - 800*0.25)
+		  }
+	  }
+	  return total
+  }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	p := newPage{Title: "Proyecto 2", Name1: Arr[0].name, Name2: Arr[1].name, Name3: Arr[2].name, Name4: Arr[3].name, Name5: Arr[4].name}
