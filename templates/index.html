@@ -16,7 +16,7 @@
             <h1 href="/" id="logo">Proyecto 2</h1>
             <p></p>
         </div>
-        <button type="button" class="btn btn-info btn-lg" id="libro1" data-toggle="modal"
+        <button onClick="calcTotalGet()" type="button" class="btn btn-info btn-lg" id="libro1" data-toggle="modal"
             data-target="#myModal">Cart</button>
     </div>
 </header>
@@ -122,6 +122,10 @@
                                 <tr>
                                     <td>{{.Name5}}</td>
                                     <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>{{.total}}</td>
                                 </tr>
                             </tbody>
                         </table>

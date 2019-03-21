@@ -1,12 +1,12 @@
-/*function onClickHandler(x) {
+function calcTotalGet(x) {
     $.ajax({
-        url: "http://localhost:8000/callme",
+        url: "http://localhost:8000/calcularTotal",
         method: "GET",
         success: function (data) {
             $("#regsponse").html(data + x);
         },
     });
-}*/
+}
 
 function onClickHandlerPost(x) {
     var amount = document.getElementById("l1").value;
