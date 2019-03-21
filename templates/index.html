@@ -81,7 +81,8 @@
                         <h3>{{.Name5}}</h3>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                             gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><button id="libro5" onClick="addLibOne(this.id)" class="btn btn-primary" role="button">Agregar al carrito</button></p>
+                        <p><button id="libro5" onClick="addLibOne(this.id)" class="btn btn-primary"
+                                role="button">Agregar al carrito</button></p>
                     </div>
                 </div>
             </div>
@@ -99,10 +100,35 @@
                 </div>
                 <div class="modal-body">
                     <p>Detalles del carrito</p>
-                    }{ñ´-[}]
+                    <div>
+                        <table style="width: 100%;" border="2" cellpadding="50">
+                            <tbody>
+                                <tr>
+                                    <td>{{.Name1}}</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>{{.Name2}}</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>{{.Name3}}</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>{{.Name4}}</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>{{.Name5}}</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-default">Comprar</button>
                 </div>
             </div>
 
