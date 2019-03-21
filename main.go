@@ -16,6 +16,8 @@ var libro3 = makeLibro("libro3", "C# 7.0 in a Nutshell", 10, "O'Reilly Media, In
 var libro4 = makeLibro("libro4", "21st Century C, 2nd Edition", 10, "O'Reilly Media, Inc.")
 var libro5 = makeLibro("libro5", "Learning JavaScript, 3rd Edition", 10, "O'Reilly Media, Inc.")
 var Arr = [5]Libro{libro1, libro2, libro3, libro4, libro5}
+var cart = []int{0, 0, 0, 0, 0}
+var total float64 = 0
 
 type newPage struct {
 	Title string
@@ -282,7 +284,9 @@ func bookHandler(w http.ResponseWriter, r *http.Request) {
 }
 func calcularHandler(w http.ResponseWriter, r *http.Request) {
 	total = CompararTotal(cart)
-	fmt.Fprintln(w, total)
+	p := Factura{cart: cart, total: total}
+	t, _ := template.ParseFiles("templates/index.html")
+	t.Execute(w, p)
 }
 func main() {
 	fs := http.FileServer(http.Dir("static"))
