@@ -227,11 +227,12 @@ func CompararTotal(n []int) float64 {
 	a := calcularTotal(n)
 	b := calcularTotalEsp(n)
 
-	if a > b {
-		return b
-	}
 	if b == 0 {
 		return a
+	}
+
+	if a > b {
+		return b
 	}
 
 	return a
