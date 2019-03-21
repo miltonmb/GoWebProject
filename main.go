@@ -16,6 +16,7 @@ var libro3 = makeLibro("libro3", "C# 7.0 in a Nutshell", 0, "O'Reilly Media, Inc
 var libro4 = makeLibro("libro4", "21st Century C, 2nd Edition", 0, "O'Reilly Media, Inc.")
 var libro5 = makeLibro("libro5", "Learning JavaScript, 3rd Edition", 0, "O'Reilly Media, Inc.")
 var Arr = [5]Libro{libro1, libro2, libro3, libro4, libro5}
+var cart = [5]int{0, 0, 0, 0, 0}
 
 type newPage struct {
 	Title string
@@ -70,11 +71,11 @@ func bodyFactura(Libros []Libro) string {
 }
 
 func calcularTotal(n []int) float64 {
-	var test = []int{0,0,0,0,0}
-  	copy(test, n)
-  	var temp = test
-	
-	  sort.Slice(temp[:], func(i, j int) bool {
+	var test = []int{0, 0, 0, 0, 0}
+	copy(test, n)
+	var temp = test
+
+	sort.Slice(temp[:], func(i, j int) bool {
 		return temp[i] < temp[j]
 	})
 	fmt.Println(temp)
@@ -232,11 +233,31 @@ func buttonHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+func bookHandler(w http.ResponseWriter, r *http.Request) {
+	//fmt.Fprintln(w, "You called me!")
+	amount := r.FormValue("amount")
+	id := r.FormValue("id")
+	fmt.Fprintln(w, amount)
+	fmt.Fprintln(w, id)
+	i1, err := strconv.Atoi(amount)
+	if err == nil {
+		fmt.Println(i1)
+	}
+	for i := 0; i < 5; i++ {
+		if id == Arr[i].ISBN {
+			Arr[i].inStock = Arr[i].inStock - i1
+			cart[i] += i1
+			fmt.Fprintln(w, Arr[i].inStock)
+			break
+		}
+	}
+}
 func main() {
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/admin", adminHandler)
 	http.HandleFunc("/callme", buttonHandler)
+	http.HandleFunc("/addLibs", bookHandler)
 	http.ListenAndServe(":8000", nil)
 }

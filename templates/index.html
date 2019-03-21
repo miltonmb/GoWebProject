@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
     <script src="/static/js/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/static/js/index.js"></script>
 </head>
 <header style="background-color:#1da1f2">
     <div class="container">
@@ -15,7 +16,7 @@
             <h1 href="/" id="logo">Proyecto 2</h1>
             <p></p>
         </div>
-        <button type="button" class="btn btn-info btn-lg" id="cartbutton" data-toggle="modal" data-target="#myModal">Cart</button>
+        <button type="button" class="btn btn-info btn-lg" id="libro1" data-toggle="modal" data-target="#myModal">Cart</button>
     </div>
 </header>
 
@@ -29,7 +30,7 @@
                         <h3>{{.Name1}}</h3>
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
                             gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Agregar al carrito</a></p>
+                        <p><button onClick="addLibOne(this.id)" class="btn btn-primary" role="button">Agregar al carrito</button></p>
                     </div>
                 </div>
             </div>
@@ -93,6 +94,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Detalles del carrito</p>
+                }{ñ´-[}]
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

@@ -3,7 +3,7 @@
         url: "http://localhost:8000/callme",
         method: "GET",
         success: function (data) {
-            $("#response").html(data + x);
+            $("#regsponse").html(data + x);
         },
     });
 }*/
@@ -66,6 +66,20 @@ function onClickHandlerPostLib5(x) {
     var arr = {amount,id}
     $.ajax({
         url: "http://localhost:8000/callme",
+        method: "POST",
+        data:arr,
+        success: function (data) {
+            console.log("Se ha enviado")
+        },
+    });
+}
+
+function addLibOne(x){
+    var amount = 1
+    var id = x;
+    var arr = {amount,id}
+    $.ajax({
+        url: "http://localhost:8000/addLibs",
         method: "POST",
         data:arr,
         success: function (data) {
