@@ -70,8 +70,11 @@ func bodyFactura(Libros []Libro) string {
 }
 
 func calcularTotal(n []int) float64 {
-	var temp = n
-	sort.Slice(temp[:], func(i, j int) bool {
+	var test = []int{0,0,0,0,0}
+  	copy(test, n)
+  	var temp = test
+	
+	  sort.Slice(temp[:], func(i, j int) bool {
 		return temp[i] < temp[j]
 	})
 	fmt.Println(temp)
