@@ -222,6 +222,17 @@ func calcularTotalEsp(n []int) float64 {
 	return total
 }
 
+func CompararTotal(n []int) float64 {
+	a := calcularTotal(n)
+	b := calcularTotalEsp(n)
+
+	if a > b {
+		return b
+	}
+
+	return a
+}
+
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	p := newPage{Title: "Proyecto 2", Name1: Arr[0].name, Name2: Arr[1].name, Name3: Arr[2].name, Name4: Arr[3].name, Name5: Arr[4].name}
 	t, _ := template.ParseFiles("templates/index.html")
