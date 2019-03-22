@@ -2,6 +2,7 @@ package main
 
 import (
 	//"fmt"
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"net/http"
@@ -53,8 +54,8 @@ func (l Libro) SetStock(stock int) {
 }
 
 type Factura struct {
-	cart  []int
-	total float64
+	Cart  []int   `json:"cart"`
+	Total float64 `json:"total"`
 }
 
 func makeLibro(ISBN string, name string, inStock int, editora string) Libro {
@@ -284,9 +285,19 @@ func bookHandler(w http.ResponseWriter, r *http.Request) {
 }
 func calcularHandler(w http.ResponseWriter, r *http.Request) {
 	total = CompararTotal(cart)
-	p := Factura{cart: cart, total: total}
-	t, _ := template.ParseFiles("templates/index.html")
-	t.Execute(w, p)
+	p := &Factura{Cart: cart, Total: total}
+	e, err := json.Marshal(p)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Fprintln(w, string(e))
+}
+
+func comprarHandler(w http.ResponseWriter, r *http.Request) {
+	cart = []int{0, 0, 0, 0, 0}
+	total = 0
+	fmt.Println(w, "Se ha comprado!")
 }
 func main() {
 	fs := http.FileServer(http.Dir("static"))
@@ -296,5 +307,6 @@ func main() {
 	http.HandleFunc("/callme", buttonHandler)
 	http.HandleFunc("/addLibs", bookHandler)
 	http.HandleFunc("/calcularTotal", calcularHandler)
+	http.HandleFunc("/comprar", comprarHandler)
 	http.ListenAndServe(":8000", nil)
 }
